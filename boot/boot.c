@@ -123,7 +123,7 @@ static const char *bios_err(int err)
 /* CD's are addressed in 2048-byte sectors.
  * In order to be able to read CD's but maintain the same interface of 512-byte
  * sector addressing, we check if the device is a CD in readsectors() and if so,
- * read it into our own buffer first 
+ * read it into our own buffer first
  */
 int readsectors(u32_t bufaddr, u32_t sector, u8_t count)
 {
@@ -991,7 +991,7 @@ static void get_parameters(void)
 
 	/* Variables boot needs: */
 	b_setvar(E_SPECIAL|E_VAR, "image", "boot/image");
-	b_setvar(E_SPECIAL|E_FUNCTION, "leader", 
+	b_setvar(E_SPECIAL|E_FUNCTION, "leader",
 		"echo --- Welcome to MINIX 3. This is the boot monitor. ---\\n");
 	b_setvar(E_SPECIAL|E_FUNCTION, "main", "menu");
 	b_setvar(E_SPECIAL|E_FUNCTION, "trailer", "");
@@ -2069,7 +2069,7 @@ reset() { }
 
 #endif /* UNIX */
 
+
 /*
  * $PchId: boot.c,v 1.14 2002/02/27 19:46:14 philip Exp $
  */
-

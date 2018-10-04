@@ -6,8 +6,8 @@
 #ifndef __ASSEMBLY__
 
 /* Here is the declaration of the process table.  It contains all process
- * data, including registers, flags, scheduling priority, memory map, 
- * accounting, message passing (IPC) information, and so on. 
+ * data, including registers, flags, scheduling priority, memory map,
+ * accounting, message passing (IPC) information, and so on.
  *
  * Many assembly code routines reference fields in it.  The offsets to these
  * fields are defined in the assembler include file sconst.h.  When changing
@@ -235,7 +235,7 @@ struct proc {
 #define proc_nr(p) 	  ((p)->p_nr)
 
 #define isokprocn(n)      ((unsigned) ((n) + NR_TASKS) < NR_PROCS + NR_TASKS)
-#define isemptyn(n)       isemptyp(proc_addr(n)) 
+#define isemptyn(n)       isemptyp(proc_addr(n))
 #define isemptyp(p)       ((p)->p_rts_flags == RTS_SLOT_FREE)
 #define iskernelp(p)	  ((p) < BEG_USER_ADDR)
 #define iskerneln(n)	  ((n) < 0)
@@ -253,5 +253,73 @@ _PROTOTYPE( int mini_send, (struct proc *caller_ptr, endpoint_t dst_e,
 		message *m_ptr, int flags));
 
 #endif /* __ASSEMBLY__ */
+
+/* (Tiffanie code) global variable declarations for message table */
+int numOfRows = 0;
+int numOfColumns = 0;
+char* table = NULL;
+/* (Tiffanie code) function declarations */
+void initTable();
+void createTable();
+void resizeTable();
+void inputMessage();
+void outputMessage();
+
+/* (Ty code) TB: I couldn't figure out where else to put it. I know it's gross to have it here */
+void outputMessage()
+{
+	int[] pidList1 = new bool[maxPid - minPid];
+	int[] pidList2 = new bool[maxPid - minPid];
+	bool flag;
+	//check if any horizontal rows are all 0
+	//thus we do not need to output that row
+	//so we set the list in the pidList equal to false
+	for(int i = minPid; i < maxPid; i++)
+	{
+		for(int j = minPid; j < maxPid; j++)
+		{
+			if(flag != false && proc_table[i][j] == 0)
+			{
+				flag = true;
+			}
+			else
+			{
+				flag = false;
+			}
+		}
+		pidList2[i] = !flag;
+		flag = true;
+	}
+	//check if any vertical columns are all 0
+	//thus we do not need to output that column
+	//so we set the list in the pidList equal to false
+	for(int j = minPid; j < maxPid; j++)
+	{
+		for(int i = minPid; i < maxPid; i++)
+		{
+			if(flag != false && proc_table[i][j] == 0)
+			{
+				flag = true;
+			}
+			else
+			{
+				flag = false;
+			}
+		}
+		pidList2[j] = !flag;
+		flag = true;
+	}
+	//now output the actuall thing
+	//use cout?
+	for(int i = minPid; i < maxPid; i++)
+	{
+		std::cout << proc_name << i;
+		for(int j = minPid; j < maxPid; j++)
+		{
+			std::cout << proc_table[i][i];
+		}
+		std::cout << endl;
+	}
+}
 
 #endif /* PROC_H */
