@@ -1,7 +1,7 @@
-/* This file contains information dump procedures. During the initialization 
+/* This file contains information dump procedures. During the initialization
  * of the Information Service 'known' function keys are registered at the TTY
- * server in order to receive a notification if one is pressed. Here, the 
- * corresponding dump procedure is called.  
+ * server in order to receive a notification if one is pressed. Here, the
+ * corresponding dump procedure is called.
  *
  * The entry points into this file are
  *   map_unmap_fkeys:	register or unregister function key maps with TTY
@@ -55,7 +55,7 @@ int map;
   fkeys = sfkeys = 0;
 
   for (h = 0; h < NHOOKS; h++) {
-      if (hooks[h].key >= F1 && hooks[h].key <= F12) 
+      if (hooks[h].key >= F1 && hooks[h].key <= F12)
           bit_set(fkeys, hooks[h].key - F1 + 1);
       else if (hooks[h].key >= SF1 && hooks[h].key <= SF12)
           bit_set(sfkeys, hooks[h].key - SF1 + 1);
@@ -72,7 +72,7 @@ int map;
  *				handle_fkey				     *
  *===========================================================================*/
 #define pressed(k) ((F1<=(k)&&(k)<=F12 && bit_isset(m->FKEY_FKEYS,((k)-F1+1)))\
-  	|| (SF1<=(k) && (k)<=SF12 && bit_isset(m->FKEY_SFKEYS, ((k)-SF1+1)))) 
+  	|| (SF1<=(k) && (k)<=SF12 && bit_isset(m->FKEY_SFKEYS, ((k)-SF1+1))))
 PUBLIC int do_fkey_pressed(m)
 message *m;					/* notification message */
 {
@@ -132,57 +132,57 @@ PUBLIC void mapping_dmp(void)
 /* (Ty code) print out message table */
 void outputMessage()
 {
-  // int[] pidList1 = new bool[maxPid - minPid];
-  // int[] pidList2 = new bool[maxPid - minPid];
-  // bool flag;
-  // //check if any horizontal rows are all 0
-  // //thus we do not need to output that row
-  // //so we set the list in the pidList equal to false
-  // for(int i = minPid; i < maxPid; i++)
-  // {
-  //   for(int j = minPid; j < maxPid; j++)
-  //   {
-  //     if(flag != false && proc_table[i][j] == 0)
-  //     {
-  //       flag = true;
-  //     }
-  //     else
-  //     {
-  //       flag = false;
-  //     }
-  //   }
-  //   pidList2[i] = !flag;
-  //   flag = true;
-  // }
-  // //check if any vertical columns are all 0
-  // //thus we do not need to output that column
-  // //so we set the list in the pidList equal to false
-  // for(int j = minPid; j < maxPid; j++)
-  // {
-  //   for(int i = minPid; i < maxPid; i++)
-  //   {
-  //     if(flag != false && proc_table[i][j] == 0)
-  //     {
-  //       flag = true;
-  //     }
-  //     else
-  //     {
-  //       flag = false;
-  //     }
-  //   }
-  //   pidList2[j] = !flag;
-  //   flag = true;
-  // }
-  // //now output the actuall thing
-  // //use cout?
-  // for(int i = minPid; i < maxPid; i++)
-  // {
-  //   std::cout << proc_name << i;
-  //   for(int j = minPid; j < maxPid; j++)
-  //   {
-  //     std::cout << proc_table[i][i];
-  //   }
-  //   std::cout << endl;
-  // }
-  printf("Hello World.\n");
+ /* int[] pidList1 = new bool[maxPid - minPid];
+  int[] pidList2 = new bool[maxPid - minPid];
+  bool flag;
+  //check if any horizontal rows are all 0
+  //thus we do not need to output that row
+  //so we set the list in the pidList equal to false
+  for(int i = minPid; i < maxPid; i++)
+  {
+    for(int j = minPid; j < maxPid; j++)
+    {
+      if(flag != false && proc_table[i][j] == 0)
+      {
+        flag = true;
+      }
+      else
+      {
+        flag = false;
+      }
+    }
+    pidList2[i] = !flag;
+    flag = true;
+  }
+  //check if any vertical columns are all 0
+  //thus we do not need to output that column
+  //so we set the list in the pidList equal to false
+  for(int j = minPid; j < maxPid; j++)
+  {
+    for(int i = minPid; i < maxPid; i++)
+    {
+      if(flag != false && proc_table[i][j] == 0)
+      {
+        flag = true;
+      }
+      else
+      {
+        flag = false;
+      }
+    }
+    pidList2[j] = !flag;
+    flag = true;
+  }
+  //now output the actuall thing
+  //use cout?
+  for(int i = minPid; i < maxPid; i++)
+  {
+    std::cout << proc_name << i;
+    for(int j = minPid; j < maxPid; j++)
+    {
+      std::cout << proc_table[i][i];
+    }
+    std::cout << endl;
+}*/
+  printf("Hello World.");
 }
