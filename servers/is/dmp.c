@@ -9,6 +9,7 @@
  */
 
 #include "inc.h"
+#include <minix/proc.h>
 #include <minix/vm.h>
 
 struct hook_entry {
@@ -19,13 +20,14 @@ struct hook_entry {
 	{ F1, 	proctab_dmp, "Kernel process table" },
 	{ F2,   memmap_dmp, "Process memory maps" },
 	{ F3,	image_dmp, "System image" },
-	{ F4,	privileges_dmp, "Process privileges" },
+	{ F4,	 outputMessage, "outputMessage" },
 	{ F5,	monparams_dmp, "Boot monitor parameters" },
 	{ F6,	irqtab_dmp, "IRQ hooks and policies" },
 	{ F7,	kmessages_dmp, "Kernel messages" },
 	{ F8,	vm_dmp, "VM status and process maps" },
 	{ F10,	kenv_dmp, "Kernel parameters" },
 	{ F11,	timing_dmp, "Timing details (if enabled)" },
+  { F12, privileges_dmp, "Process privileges" },
 	{ SF1,	mproc_dmp, "Process manager process table" },
 	{ SF2,	sigaction_dmp, "Signals" },
 	{ SF3,	fproc_dmp, "Filesystem process table" },
@@ -125,4 +127,62 @@ PUBLIC void mapping_dmp(void)
   for(h=0; h < NHOOKS; h++)
       printf(" %10s.  %s\n", key_name(hooks[h].key), hooks[h].name);
   printf("\n");
+}
+
+/* (Ty code) print out message table */
+void outputMessage()
+{
+  // int[] pidList1 = new bool[maxPid - minPid];
+  // int[] pidList2 = new bool[maxPid - minPid];
+  // bool flag;
+  // //check if any horizontal rows are all 0
+  // //thus we do not need to output that row
+  // //so we set the list in the pidList equal to false
+  // for(int i = minPid; i < maxPid; i++)
+  // {
+  //   for(int j = minPid; j < maxPid; j++)
+  //   {
+  //     if(flag != false && proc_table[i][j] == 0)
+  //     {
+  //       flag = true;
+  //     }
+  //     else
+  //     {
+  //       flag = false;
+  //     }
+  //   }
+  //   pidList2[i] = !flag;
+  //   flag = true;
+  // }
+  // //check if any vertical columns are all 0
+  // //thus we do not need to output that column
+  // //so we set the list in the pidList equal to false
+  // for(int j = minPid; j < maxPid; j++)
+  // {
+  //   for(int i = minPid; i < maxPid; i++)
+  //   {
+  //     if(flag != false && proc_table[i][j] == 0)
+  //     {
+  //       flag = true;
+  //     }
+  //     else
+  //     {
+  //       flag = false;
+  //     }
+  //   }
+  //   pidList2[j] = !flag;
+  //   flag = true;
+  // }
+  // //now output the actuall thing
+  // //use cout?
+  // for(int i = minPid; i < maxPid; i++)
+  // {
+  //   std::cout << proc_name << i;
+  //   for(int j = minPid; j < maxPid; j++)
+  //   {
+  //     std::cout << proc_table[i][i];
+  //   }
+  //   std::cout << endl;
+  // }
+  printf("Hello World.\n");
 }
