@@ -20,7 +20,7 @@ struct hook_entry {
 	{ F1, 	proctab_dmp, "Kernel process table" },
 	{ F2,   memmap_dmp, "Process memory maps" },
 	{ F3,	image_dmp, "System image" },
-	// { F4,	outputMessage, "outputMessage" },
+	// { F4,	outputMessage, "Print Message Table" },
 	{ F4,	proctab_dmp, "Kernel process table"},
 	{ F5,	monparams_dmp, "Boot monitor parameters" },
 	{ F6,	irqtab_dmp, "IRQ hooks and policies" },
@@ -28,7 +28,7 @@ struct hook_entry {
 	{ F8,	vm_dmp, "VM status and process maps" },
 	{ F10,	kenv_dmp, "Kernel parameters" },
 	{ F11,	timing_dmp, "Timing details (if enabled)" },
-  { F12, privileges_dmp, "Process privileges" },
+  { F12,  privileges_dmp, "Process privileges" },
 	{ SF1,	mproc_dmp, "Process manager process table" },
 	{ SF2,	sigaction_dmp, "Signals" },
 	{ SF3,	fproc_dmp, "Filesystem process table" },
@@ -131,8 +131,9 @@ PUBLIC void mapping_dmp(void)
 }
 
 /* (Ty code) print out message table */
-void outputMessage()
+PUBLIC void outputMessage(void)
 {
+	  printf("Hello World.");
  /* int[] pidList1 = new bool[maxPid - minPid];
   int[] pidList2 = new bool[maxPid - minPid];
   bool flag;
@@ -185,5 +186,4 @@ void outputMessage()
     }
     std::cout << endl;
 }*/
-  printf("Hello World.");
 }
