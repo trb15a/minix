@@ -349,9 +349,10 @@ PUBLIC void privileges_dmp()
 	    printf(" %04x", sp->s_k_call_mask[i/BITCHUNK_BITS]);
        	}
 	printf("\n");
-	*/
-printf("Hello World");
+
   }
+  */
+printf("Hello World");
 }
 
 /*===========================================================================*
