@@ -311,45 +311,46 @@ PRIVATE char *s_traps_str(int flags)
  *===========================================================================*/
 PUBLIC void privileges_dmp()
 {
-	printf("Hello World");
-  // register struct proc *rp;
-  // static struct proc *oldrp = BEG_PROC_ADDR;
-  // register struct priv *sp;
-  // int r, i;
-  //
-  // /* First obtain a fresh copy of the current process and system table. */
-  // if ((r = sys_getprivtab(priv)) != OK) {
-  //     printf("IS: warning: couldn't get copy of system privileges table: %d\n", r);
-  //     return;
-  // }
-  // if ((r = sys_getproctab(proc)) != OK) {
-  //     printf("IS: warning: couldn't get copy of process table: %d\n", r);
-  //     return;
-  // }
-  //
-  // printf("-nr- -id- -name-- -flags-    traps  grants -ipc_to--  -kernel calls-\n");
-  //
-  // PROCLOOP(rp, oldrp)
-  //       r = -1;
-  //       for (sp = &priv[0]; sp < &priv[NR_SYS_PROCS]; sp++)
-  //           if (sp->s_proc_nr == rp->p_nr) { r ++; break; }
-  //       if (r == -1 && !isemptyp(rp)) {
-	//     sp = &priv[USER_PRIV_ID];
-  //       }
-	// printf("(%02u) %-7.7s %s    %s %7d",
-	//        sp->s_id, rp->p_name,
-	//        s_flags_str(sp->s_flags), s_traps_str(sp->s_trap_mask),
-	// 	sp->s_grant_entries);
-  //       for (i=0; i < NR_SYS_PROCS; i += BITCHUNK_BITS) {
-	//     printf(" %04x", get_sys_bits(sp->s_ipc_to, i));
-  //      	}
-  //
-	// printf(" ");
-  //       for (i=0; i < NR_SYS_CALLS; i += BITCHUNK_BITS) {
-	//     printf(" %04x", sp->s_k_call_mask[i/BITCHUNK_BITS]);
-  //      	}
-	// printf("\n");
+/*
+  register struct proc *rp;
+  static struct proc *oldrp = BEG_PROC_ADDR;
+  register struct priv *sp;
+  int r, i;
+*/
+  /* First obtain a fresh copy of the current process and system table. */
+/*  if ((r = sys_getprivtab(priv)) != OK) {
+      printf("IS: warning: couldn't get copy of system privileges table: %d\n", r);
+      return;
+  }
+  if ((r = sys_getproctab(proc)) != OK) {
+      printf("IS: warning: couldn't get copy of process table: %d\n", r);
+      return;
+  }
 
+  printf("-nr- -id- -name-- -flags-    traps  grants -ipc_to--  -kernel calls-\n");
+
+  PROCLOOP(rp, oldrp)
+        r = -1;
+        for (sp = &priv[0]; sp < &priv[NR_SYS_PROCS]; sp++)
+            if (sp->s_proc_nr == rp->p_nr) { r ++; break; }
+        if (r == -1 && !isemptyp(rp)) {
+	    sp = &priv[USER_PRIV_ID];
+        }
+	printf("(%02u) %-7.7s %s    %s %7d",
+	       sp->s_id, rp->p_name,
+	       s_flags_str(sp->s_flags), s_traps_str(sp->s_trap_mask),
+		sp->s_grant_entries);
+        for (i=0; i < NR_SYS_PROCS; i += BITCHUNK_BITS) {
+	    printf(" %04x", get_sys_bits(sp->s_ipc_to, i));
+       	}
+
+	printf(" ");
+        for (i=0; i < NR_SYS_CALLS; i += BITCHUNK_BITS) {
+	    printf(" %04x", sp->s_k_call_mask[i/BITCHUNK_BITS]);
+       	}
+	printf("\n");
+	*/
+printf("Hello World");
   }
 }
 
