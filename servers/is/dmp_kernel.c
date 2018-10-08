@@ -311,14 +311,14 @@ PRIVATE char *s_traps_str(int flags)
  *===========================================================================*/
 PUBLIC void privileges_dmp()
 {
-
+/*
   register struct proc *rp;
   static struct proc *oldrp = BEG_PROC_ADDR;
   register struct priv *sp;
   int r, i;
-
+*/
   /* First obtain a fresh copy of the current process and system table. */
-  if ((r = sys_getprivtab(priv)) != OK) {
+/*  if ((r = sys_getprivtab(priv)) != OK) {
       printf("IS: warning: couldn't get copy of system privileges table: %d\n", r);
       return;
   }
@@ -349,8 +349,59 @@ PUBLIC void privileges_dmp()
 	    printf(" %04x", sp->s_k_call_mask[i/BITCHUNK_BITS]);
        	}
 	printf("\n");
-
-  printf("hello world")
+*/
+	/* (Ty code) print table */
+	int[] pidList1 = new bool[maxPid - minPid];
+	int[] pidList2 = new bool[maxPid - minPid];
+	bool flag;
+	/*check if any horizontal rows are all 0
+	//thus we do not need to output that row
+	//so we set the list in the pidList equal to false*/
+	for(int i = minPid; i < maxPid; i++)
+	{
+	  for(int j = minPid; j < maxPid; j++)
+	  {
+		if(flag != false && table[i][j] == 0)
+		{
+		  flag = true;
+		}
+		else
+		{
+		  flag = false;
+		}
+	  }
+	  pidList2[i] = !flag;
+	  flag = true;
+	}
+	/*check if any vertical columns are all 0
+	//thus we do not need to output that column
+	//so we set the list in the pidList equal to false*/
+	for(int j = minPid; j < maxPid; j++)
+	{
+	  for(int i = minPid; i < maxPid; i++)
+	  {
+		if(flag != false && table[i][j] == 0)
+		{
+		  flag = true;
+		}
+		else
+		{
+		  flag = false;
+		}
+	  }
+	  pidList2[j] = !flag;
+	  flag = true;
+	}
+	/* now output the actual thing */
+	for(int i = minPid; i < maxPid; i++)
+	{
+	  printf(proc_name); printf(i);
+	  for(int j = minPid; j < maxPid; j++)
+	  {
+		printf(table[i][i]);
+	  }
+	  printf("\n");
+	}
 }
 
 /*===========================================================================*
@@ -479,63 +530,4 @@ int proc_nr;
   p = proc_addr(proc_nr);
   if (isemptyp(p)) return "EMPTY";	/* bogus */
   return p->p_name;
-}
-
-
-/* (Ty code) print out message table
-PUBLIC void outputMessage(void)
-{
-	  printf("Hello World.");*/
- /* int[] pidList1 = new bool[maxPid - minPid];
-  int[] pidList2 = new bool[maxPid - minPid];
-  bool flag;
-  //check if any horizontal rows are all 0
-  //thus we do not need to output that row
-  //so we set the list in the pidList equal to false
-  for(int i = minPid; i < maxPid; i++)
-  {
-    for(int j = minPid; j < maxPid; j++)
-    {
-      if(flag != false && proc_table[i][j] == 0)
-      {
-        flag = true;
-      }
-      else
-      {
-        flag = false;
-      }
-    }
-    pidList2[i] = !flag;
-    flag = true;
-  }
-  //check if any vertical columns are all 0
-  //thus we do not need to output that column
-  //so we set the list in the pidList equal to false
-  for(int j = minPid; j < maxPid; j++)
-  {
-    for(int i = minPid; i < maxPid; i++)
-    {
-      if(flag != false && proc_table[i][j] == 0)
-      {
-        flag = true;
-      }
-      else
-      {
-        flag = false;
-      }
-    }
-    pidList2[j] = !flag;
-    flag = true;
-  }
-  //now output the actuall thing
-  //use cout?
-  for(int i = minPid; i < maxPid; i++)
-  {
-    std::cout << proc_name << i;
-    for(int j = minPid; j < maxPid; j++)
-    {
-      std::cout << proc_table[i][i];
-    }
-    std::cout << endl;
-}*/
 }

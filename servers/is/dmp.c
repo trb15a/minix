@@ -9,8 +9,8 @@
  */
 
 #include "inc.h"
-#include <minix/kernel/proc.h>
-#include <minix/kernel/vm.h>
+#include <minix/proc.h>
+#include <minix/vm.h>
 
 struct hook_entry {
 	int key;
@@ -120,7 +120,7 @@ PUBLIC void mapping_dmp(void)
 {
   int h;
 
-  printf("Function key mappings for debug dumps in IS server. Hello World\n");
+  printf("Function key mappings for debug dumps in IS server.\n");
   printf("        Key   Description\n");
   printf("-------------------------------------");
   printf("------------------------------------\n");
