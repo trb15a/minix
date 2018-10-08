@@ -543,15 +543,15 @@ PUBLIC int mini_send(
 
   /* (Tiffanie code) increment message count in table */
   /* create table if it hasn't already been created */
-  if (table == NULL)
+  /*if (table == NULL)
   {
   	initTable();
-  }
+}*/
   /* check that table is created, then increment count in table */
-  if (table[0][0] == 'name')
+  /*if (table[0][0] == 'name')
   {
 	inputMessage(caller_ptr, dst_e);
-  }
+}*/
 
   if (RTS_ISSET(dst_ptr, RTS_NO_ENDPOINT))
   {

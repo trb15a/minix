@@ -257,7 +257,7 @@ _PROTOTYPE( int mini_send, (struct proc *caller_ptr, endpoint_t dst_e,
 /* (Tiffanie code) global variable declarations for message table */
 /*int numOfRows = 0;
 int numOfColumns = 0;
-char* table = NULL;
+char* table = NULL;*/
 /* (Tiffanie code) function declarations */
 /*void initTable();
 void createTable();
