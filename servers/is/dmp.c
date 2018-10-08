@@ -9,8 +9,8 @@
  */
 
 #include "inc.h"
-#include <minix/proc.h>
-#include <minix/vm.h>
+#include <minix/kernel/proc.h>
+#include <minix/kernel/vm.h>
 
 struct hook_entry {
 	int key;

@@ -258,6 +258,7 @@ _PROTOTYPE( int mini_send, (struct proc *caller_ptr, endpoint_t dst_e,
 /*int numOfRows = 0;
 int numOfColumns = 0;
 char* table = NULL;*/
+
 /* (Tiffanie code) function declarations */
 /*void initTable();
 void createTable();
