@@ -28,7 +28,7 @@ struct hook_entry {
 	{ F8,	vm_dmp, "VM status and process maps" },
 	{ F10,	kenv_dmp, "Kernel parameters" },
 	{ F11,	timing_dmp, "Timing details (if enabled)" },
-  { F12,  privileges_dmp, "Process privileges" },
+  /*{ F12,  privileges_dmp, "Process privileges" },*/
 	{ SF1,	mproc_dmp, "Process manager process table" },
 	{ SF2,	sigaction_dmp, "Signals" },
 	{ SF3,	fproc_dmp, "Filesystem process table" },

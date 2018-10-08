@@ -311,14 +311,14 @@ PRIVATE char *s_traps_str(int flags)
  *===========================================================================*/
 PUBLIC void privileges_dmp()
 {
-/*
+
   register struct proc *rp;
   static struct proc *oldrp = BEG_PROC_ADDR;
   register struct priv *sp;
   int r, i;
-*/
+
   /* First obtain a fresh copy of the current process and system table. */
-/*  if ((r = sys_getprivtab(priv)) != OK) {
+  if ((r = sys_getprivtab(priv)) != OK) {
       printf("IS: warning: couldn't get copy of system privileges table: %d\n", r);
       return;
   }
@@ -350,9 +350,7 @@ PUBLIC void privileges_dmp()
        	}
 	printf("\n");
 
-  }
-  */
-printf("Hello World");
+  printf("hello world")
 }
 
 /*===========================================================================*
