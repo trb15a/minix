@@ -20,7 +20,7 @@ struct hook_entry {
 	{ F1, 	proctab_dmp, "Kernel process table" },
 	{ F2,   memmap_dmp, "Process memory maps" },
 	{ F3,	image_dmp, "System image" },
-	{ F4,	proctab_dmp, "Print Message Table" },
+	{ F4,	privileges_dmp, "Print Message Table" },
 	/* { F4,	proctab_dmp, "Kernel process table"},*/
 	{ F5,	monparams_dmp, "Boot monitor parameters" },
 	{ F6,	irqtab_dmp, "IRQ hooks and policies" },
@@ -128,4 +128,5 @@ PUBLIC void mapping_dmp(void)
   for(h=0; h < NHOOKS; h++)
       printf(" %10s.  %s\n", key_name(hooks[h].key), hooks[h].name);
   printf("\n");
+  printf("Hello World");
 }
