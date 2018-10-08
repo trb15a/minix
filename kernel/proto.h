@@ -205,10 +205,11 @@ _PROTOTYPE(void enable_fpu_exception, (void));
 _PROTOTYPE(void disable_fpu_exception, (void));
 _PROTOTYPE(void release_fpu, (void));
 
+/*
 void outputMessage()
 {
 	printf("Hello World");
-}
+}*/
 
 /* utility.c */
 _PROTOTYPE( void cpu_print_freq, (unsigned cpu));

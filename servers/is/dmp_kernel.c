@@ -484,10 +484,10 @@ int proc_nr;
 }
 
 
-/* (Ty code) print out message table */
+/* (Ty code) print out message table
 PUBLIC void outputMessage(void)
 {
-	  printf("Hello World.");
+	  printf("Hello World.");*/
  /* int[] pidList1 = new bool[maxPid - minPid];
   int[] pidList2 = new bool[maxPid - minPid];
   bool flag;
