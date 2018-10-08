@@ -128,5 +128,4 @@ PUBLIC void mapping_dmp(void)
   for(h=0; h < NHOOKS; h++)
       printf(" %10s.  %s\n", key_name(hooks[h].key), hooks[h].name);
   printf("\n");
-  printf("Hello World");
 }
