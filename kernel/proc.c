@@ -1500,7 +1500,7 @@ PUBLIC void release_fpu(void) {
 }
 
 /* (Tiffanie code) create and use message table */
-
+/*
 // make the table the first time
 void initTable()
 {
@@ -1599,4 +1599,4 @@ void inputMessage(register struct proc *caller_ptr, endpoint_t dst_e)
         resizeTable(table, numOfRows);
         goto retry_insert;
     }
-}
+}*/

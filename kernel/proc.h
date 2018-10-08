@@ -255,14 +255,14 @@ _PROTOTYPE( int mini_send, (struct proc *caller_ptr, endpoint_t dst_e,
 #endif /* __ASSEMBLY__ */
 
 /* (Tiffanie code) global variable declarations for message table */
-int numOfRows = 0;
+/*int numOfRows = 0;
 int numOfColumns = 0;
 char* table = NULL;
 /* (Tiffanie code) function declarations */
-void initTable();
+/*void initTable();
 void createTable();
 void resizeTable();
 void inputMessage();
-void outputMessage();
+void outputMessage();*/
 
 #endif /* PROC_H */
