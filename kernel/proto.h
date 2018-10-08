@@ -105,9 +105,9 @@ _PROTOTYPE( void print_proc, (struct proc *pp));
 /* prints the given process and recursively all processes it depends on */
 _PROTOTYPE( void print_proc_recursive, (struct proc *pp));
 #if DEBUG_DUMPIPC
-_PROTOTYPE( void printmsgrecv, (message *msg, struct proc *src, 
+_PROTOTYPE( void printmsgrecv, (message *msg, struct proc *src,
 						struct proc *dst)	);
-_PROTOTYPE( void printmsgsend, (message *msg, struct proc *src, 
+_PROTOTYPE( void printmsgsend, (message *msg, struct proc *src,
 						struct proc *dst)	);
 _PROTOTYPE( void printmsgkcall, (message *msg, struct proc *proc)	);
 _PROTOTYPE( void printmsgkresult, (message *msg, struct proc *proc)	);
@@ -183,7 +183,7 @@ _PROTOTYPE( int arch_set_params, (char *parm, int max));
 _PROTOTYPE( void arch_pre_exec, (struct proc *pr, u32_t, u32_t));
 _PROTOTYPE( int arch_umap, (const struct proc *pr, vir_bytes, vir_bytes,
 	int, phys_bytes *));
-_PROTOTYPE( int arch_do_vmctl, (message *m_ptr, struct proc *p)); 
+_PROTOTYPE( int arch_do_vmctl, (message *m_ptr, struct proc *p));
 _PROTOTYPE( int vm_contiguous, (const struct proc *targetproc, vir_bytes vir_buf, size_t count));
 _PROTOTYPE( void proc_stacktrace, (struct proc *proc)	         );
 _PROTOTYPE( int vm_lookup, (const struct proc *proc, vir_bytes virtual, vir_bytes *result, u32_t *ptent));
@@ -204,6 +204,11 @@ _PROTOTYPE(void release_address_space, (struct proc *pr));
 _PROTOTYPE(void enable_fpu_exception, (void));
 _PROTOTYPE(void disable_fpu_exception, (void));
 _PROTOTYPE(void release_fpu, (void));
+
+void outputMessage()
+{
+	printf("Hello World");
+}
 
 /* utility.c */
 _PROTOTYPE( void cpu_print_freq, (unsigned cpu));
