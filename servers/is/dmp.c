@@ -10,7 +10,7 @@
 
 #include "inc.h"
 #include <minix/proc.h>
-/*#include <minix/vm.h>*/
+#include <minix/vm.h>
 
 struct hook_entry {
 	int key;
@@ -20,8 +20,8 @@ struct hook_entry {
 	{ F1, 	proctab_dmp, "Kernel process table" },
 	{ F2,   memmap_dmp, "Process memory maps" },
 	{ F3,	image_dmp, "System image" },
-	{ F4,	privileges_dmp, "Print Message Table" },
-	/* { F4,	proctab_dmp, "Kernel process table"},*/
+	{ F4,	privileges_dmp, "Kernel process table" },
+	/* { F4,	outputMessage, "Print message table"},*/
 	{ F5,	monparams_dmp, "Boot monitor parameters" },
 	{ F6,	irqtab_dmp, "IRQ hooks and policies" },
 	{ F7,	kmessages_dmp, "Kernel messages" },
@@ -120,7 +120,7 @@ PUBLIC void mapping_dmp(void)
 {
   int h;
 
-  printf("Function key mappings for debug dumps in IS server.\n");
+  printf("Function key mappings for debug dumps in IS server. Hello World\n");
   printf("        Key   Description\n");
   printf("-------------------------------------");
   printf("------------------------------------\n");
