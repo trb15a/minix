@@ -10,7 +10,7 @@
 
 #include "inc.h"
 #include <minix/proc.h>
-#include <minix/vm.h>
+/*#include <minix/vm.h>*/
 
 struct hook_entry {
 	int key;
